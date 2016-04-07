@@ -17,6 +17,16 @@ public class StudentController {
 	
 	StudentDAO studentDao = new StudentDAO();
 	
+	/**
+	 * Points to remember : In case we just want to send an object back without using the 
+	 * status codes we can specify the return type as of that object. However in case we 
+	 * want to send different status code we can use 3 ways :
+	 * ResponseEntity : As seen below
+	 * Using @ResponseStatus annotation
+	 * Using Exception handlers
+	 * @param name
+	 * @return
+	 */
 	@RequestMapping(value = "/{name}", method = RequestMethod.GET)
 	public ResponseEntity<Student> getStudent(@PathVariable String name) {
 		HttpStatus status = null;
@@ -30,8 +40,11 @@ public class StudentController {
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.POST, consumes = {"application/json"})
-	public void saveStudent(@RequestBody Student student) {
-		studentDao.addStudent(student, student.getName());
+	public ResponseEntity<HttpStatus> saveStudent(@RequestBody Student student) {
+		HttpStatus status;
+		boolean result = studentDao.addStudent(student, student.getName());
+		status = (result) ? HttpStatus.CREATED : HttpStatus.OK;
+		return new ResponseEntity<>(status);
 	}
 
 }

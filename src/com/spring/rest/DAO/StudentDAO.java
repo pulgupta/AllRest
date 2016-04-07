@@ -18,8 +18,10 @@ public class StudentDAO {
 	}
 	
 	public boolean addStudent(Student student, String id) {
+		boolean status;
+		status = (studentMap.containsKey(id)) ? false :true;
 		studentMap.put(id, student);
-		return true;
+		return status;
 	}
 	
 }
