@@ -11,6 +11,7 @@
 
 	<context:component-scan base-package="com.common.entity" />
 	<context:component-scan base-package="com.spring.rest.controllers" />
+	<context:component-scan base-package="com.spring.error.handlers" />
 	<context:component-scan base-package="com.spring.rest.DAO" />
 	<mvc:annotation-driven />
 	<bean id="viewResolver"
