@@ -91,7 +91,7 @@ public class StudentController {
 	/*
 	@ExceptionHandler(SpittleNotFoundException.class)
 	@ResponseStatus(HttpStatus.NOT_FOUND)
-	public @ResponseBody Error spittleNotFound(SpittleNotFoundException e) {
+	public Error spittleNotFound(SpittleNotFoundException e) {
 	  long spittleId = e.getSpittleId();
 	  return new Error(4, "Spittle [" + spittleId + "] not found");
 	}*/
