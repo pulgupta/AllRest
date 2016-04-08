@@ -39,6 +39,10 @@ public class Student {
 		this.mailingAddress = mailingAddress;
 	}
 	
+	public String toString() {
+		return "Name : " + this.name + ", Class : " + this.className;
+	}
+	
 	
 	
 }

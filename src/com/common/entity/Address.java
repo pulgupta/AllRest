@@ -7,6 +7,15 @@ public class Address {
 	private String landmark;
 	private String city;
 	
+	
+	public Address(String houseNumber, String street, String landmark, String city) {
+		super();
+		this.houseNumber = houseNumber;
+		this.street = street;
+		this.landmark = landmark;
+		this.city = city;
+	}
+	
 	public String getHouseNumber() {
 		return houseNumber;
 	}
