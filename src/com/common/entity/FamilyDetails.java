@@ -5,6 +5,11 @@ public class FamilyDetails {
 	private String fahtersName;
 	private String mothersName;
 	
+	
+	
+	public FamilyDetails() {
+		super();
+	}
 	public FamilyDetails(String fahtersName, String mothersName) {
 		super();
 		this.fahtersName = fahtersName;

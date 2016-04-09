@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -52,16 +53,24 @@ public class StudentController {
 		
 	}
 
+	/**
+	 * This method shows 2 important concepts : 1. How to get the headers from the post request
+	 * Also how to get the post data from the request.
+	 * @param accept
+	 * @param student
+	 * @return
+	 */
 	@RequestMapping(value = "/", method = RequestMethod.POST, consumes = {"application/json"})
-	public ResponseEntity<HttpStatus> saveStudent(@RequestBody Student student) {
+	public ResponseEntity<HttpStatus> saveStudent(@RequestHeader("Accept") String accept,@RequestBody Student student) {
 		HttpStatus status;
+		System.out.println("Received header value is " + accept);
 		boolean result = studentDao.addStudent(student, student.getName());
 		status = (result) ? HttpStatus.CREATED : HttpStatus.OK;
 		return new ResponseEntity<>(status);
 	}
 	
 	/**
-	 * This is working however the only issue with this aproach is that it is 
+	 * This is working however the only issue with this approach is that it is 
 	 * sending the complete stack trace to the client.
 	 * @param e
 	 * @return

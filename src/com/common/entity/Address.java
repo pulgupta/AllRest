@@ -8,6 +8,10 @@ public class Address {
 	private String city;
 	
 	
+	public Address() {
+		super();
+	}
+
 	public Address(String houseNumber, String street, String landmark, String city) {
 		super();
 		this.houseNumber = houseNumber;
