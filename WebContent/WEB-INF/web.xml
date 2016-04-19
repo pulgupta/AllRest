@@ -6,6 +6,26 @@
 
    <display-name>Spring MVC Application</display-name>
 
+	<!-- Added these details for JWT Authentication -->
+	<context-param>
+    	<param-name>contextClass</param-name>
+    	<param-value>
+        	org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+    	</param-value>
+	</context-param>
+
+	<context-param>
+    	<param-name>contextConfigLocation</param-name>
+    	<param-value>
+       		com.spring.rest.security.SpringSecurityConfig
+    	</param-value>
+	</context-param>
+
+	<listener>
+    	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- Completed all the annotations for the JWT Authentication -->
+	
    <servlet>
       <servlet-name>allRest</servlet-name>
       <servlet-class>
@@ -20,9 +40,17 @@
       
    </servlet>
 
-   <servlet-mapping>
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+   	<servlet-mapping>
       <servlet-name>allRest</servlet-name>
       <url-pattern>/</url-pattern>
-   </servlet-mapping>
+   	</servlet-mapping>
 
 </web-app>
