@@ -37,9 +37,7 @@
             <param-value>/WEB-INF/allRest-servlet.xml</param-value>
         </init-param>
       <load-on-startup>1</load-on-startup>
-      
    </servlet>
-
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -52,5 +50,17 @@
       <servlet-name>allRest</servlet-name>
       <url-pattern>/</url-pattern>
    	</servlet-mapping>
-
+	<!-- JAX-RS Servlet Mappings -->
+	<servlet>
+      <servlet-name>Jersey RESTful Application</servlet-name>
+      <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+         <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>com.jaxrs.rest.controllers</param-value>
+         </init-param>
+      </servlet>
+   <servlet-mapping>
+   <servlet-name>Jersey RESTful Application</servlet-name>
+      <url-pattern>/rest/*</url-pattern>
+   </servlet-mapping>  
 </web-app>

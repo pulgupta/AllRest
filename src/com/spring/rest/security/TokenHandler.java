@@ -15,6 +15,11 @@ public final class TokenHandler {
         this.userService = userService;
     }
 
+    /**
+     * Will give us the user back from the token
+     * @param token
+     * @return user who has logged in
+     */
     public User parseUserFromToken(String token) {
         String username = Jwts.parser()
                 .setSigningKey(secret)
@@ -24,6 +29,11 @@ public final class TokenHandler {
         return userService.loadUserByUsername(username);
     }
 
+    /**
+     * This method will create a token
+     * @param user
+     * @return a token based on user details and hashing algorithm
+     */
     public String createTokenForUser(User user) {
         return Jwts.builder()
                 .setSubject(user.getUsername())

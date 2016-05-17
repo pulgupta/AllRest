@@ -27,29 +27,29 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .exceptionHandling().and()
-                .anonymous().and()
-                .servletApi().and()
-                .headers().cacheControl().and()
-                .authorizeRequests()
-
-                // Allow anonymous resource requests
-                .antMatchers("/").permitAll()
-                .antMatchers("/favicon.ico").permitAll()
-                .antMatchers("**/*.html").permitAll()
-                .antMatchers("**/*.css").permitAll()
-                .antMatchers("**/*.js").permitAll()
-
-                // Allow anonymous logins
-                .antMatchers("/auth/**").permitAll()
-
-                // All other request need to be authenticated
-                .anyRequest().authenticated().and()
-
-                // Custom Token based authentication based on the header previously given to the client
-                .addFilterBefore(new StatelessAuthenticationFilter(tokenAuthenticationService),
-                        UsernamePasswordAuthenticationFilter.class);
+//        http
+//                .exceptionHandling().and()
+//                .anonymous().and()
+//                .servletApi().and()
+//                .headers().cacheControl().and()
+//                .authorizeRequests()
+//
+//                // Allow anonymous resource requests
+//                .antMatchers("/").permitAll()
+//                .antMatchers("/favicon.ico").permitAll()
+//                .antMatchers("**/*.html").permitAll()
+//                .antMatchers("**/*.css").permitAll()
+//                .antMatchers("**/*.js").permitAll()
+//
+//                // Allow anonymous logins
+//                .antMatchers("/auth/**").permitAll()
+//
+//                // All other request need to be authenticated
+//                .anyRequest().authenticated().and()
+//
+//                // Custom Token based authentication based on the header previously given to the client
+//                .addFilterBefore(new StatelessAuthenticationFilter(tokenAuthenticationService),
+//                        UsernamePasswordAuthenticationFilter.class);
     }
 
     @Override

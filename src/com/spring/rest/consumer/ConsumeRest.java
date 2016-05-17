@@ -22,7 +22,7 @@ import com.common.entity.Student;
  * Rest template hides all the complexity like checked exceptions etc for connecting and calling a REST service.
  * 
  * In this also we will use the response entity and can get the headers, return http codes 
- * can get the body as well which will give us the object which we have highlighed in the get for entiry
+ * can get the body as well which will give us the object which we have highlighted in the get for entiry
  * @author pulgupta
  *
  */
@@ -34,10 +34,12 @@ public class ConsumeRest {
 		int choice = in.nextInt();
 		switch(choice) {
 		case 1:
-			String name = "Pulkit1";
+			String name = "Jhon";
 			RestTemplate rt = new RestTemplate();
 			//Best way of doing and passing variables in path
 			ResponseEntity<Student> responseEntity = rt.getForEntity("http://localhost:8080/AllRest/student/{name}", Student.class, name);
+			Student st = responseEntity.getBody();
+			
 			if(responseEntity.getStatusCode() == HttpStatus.OK)
 				System.out.println(responseEntity.getBody());
 			break;

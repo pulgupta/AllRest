@@ -44,6 +44,12 @@ public class Address {
 	public void setCity(String city) {
 		this.city = city;
 	}
+
+	@Override
+	public String toString() {
+		return "Address [houseNumber=" + houseNumber + ", street=" + street + ", landmark=" + landmark + ", city="
+				+ city + "]";
+	}
 	
 	
 }

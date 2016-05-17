@@ -27,6 +27,11 @@ public class FamilyDetails {
 	public void setMothersName(String mothersName) {
 		this.mothersName = mothersName;
 	}
+	@Override
+	public String toString() {
+		return "FamilyDetails [fahtersName=" + fahtersName + ", mothersName=" + mothersName + "]";
+	}
+	
 	
 	
 }

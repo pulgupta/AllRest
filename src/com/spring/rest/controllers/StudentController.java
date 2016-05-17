@@ -44,7 +44,7 @@ public class StudentController {
 	 * @param name
 	 * @return
 	 */
-	@RequestMapping(value = "/{name}", method = RequestMethod.GET)
+	@RequestMapping(value = "/{name}/", method = RequestMethod.GET)
 	public ResponseEntity<Student> getStudent(@PathVariable String name) {
 		Student student =  studentDao.getStudent(name);
 		if(student == null) 
@@ -89,12 +89,15 @@ public class StudentController {
 	 * @param e
 	 * @return
 	 */
+	
+	
 	@ExceptionHandler(StudentNotFoundException.class)
 	public ResponseEntity<String> studentNotFound(StudentNotFoundException e) {
 		String studentId = e.getStudentId();
 		String error = "Student with [" + studentId + "] not found";
 		return new ResponseEntity<String>(error, HttpStatus.NOT_FOUND);
 	}
+	
 	//In the above method as we know that we are always sending a single status code
 	//we can annotate this method with @ResonseStatus(HttpStatus.NOT_FOUND) and can return an Error object.
 	/*

@@ -40,7 +40,11 @@ public class Student {
 	}
 	
 	public String toString() {
-		return "Name : " + this.name + ", Class : " + this.className;
+		System.out.println("Name : " + this.name + ", Class : " + this.className);
+		System.out.println(familyDetails);
+		System.out.println("House Address\n" + houseAddress);
+		System.out.println("Mailing Address\n" + mailingAddress);
+		return "Thats all folks";
 	}
 	
 	
