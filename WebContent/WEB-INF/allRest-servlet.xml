@@ -16,6 +16,8 @@
 	<context:component-scan base-package="com.spring.rest.controllers" />
 	<context:component-scan base-package="com.spring.error.handlers" />
 	<context:component-scan base-package="com.spring.rest.DAO" />
+	<context:component-scan base-package="com.spring.mapper.controller"/>
+	
 	<mvc:annotation-driven />
 	<!-- <security:csrf disabled="true"/> -->
 	<bean id="viewResolver"

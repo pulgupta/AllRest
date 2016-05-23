@@ -3,6 +3,7 @@
 	<name>AllRest</name>
 	<comment></comment>
 	<projects>
+		<project>AllSoap</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
