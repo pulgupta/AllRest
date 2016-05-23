@@ -8,3 +8,6 @@ Once spring is fully explored we will move to JAS RX way to create Rest service.
 
 My favorite way of as of now is spring which abstracts lot of things but still giving you enough control and thus I consider it better than spring boot.
 
+##Code Layout
+
+Each technology is used in a separate package. Example Spring demos are placed in a package with spring key. Similarly JAX-RS has a separate package.
