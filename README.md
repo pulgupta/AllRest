@@ -11,3 +11,11 @@ My favorite way of as of now is spring which abstracts lot of things but still g
 ##Code Layout
 
 Each technology is used in a separate package. Example Spring demos are placed in a package with spring key. Similarly JAX-RS has a separate package.
+
+##Important Components
+
+As of now the code highlights the Rest principles using
+  -- SPRING 
+  -- JAX-RS
+  -- Integrating hetrogeneous services accross multiple technologies and provider
+
